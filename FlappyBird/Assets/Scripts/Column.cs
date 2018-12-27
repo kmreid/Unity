@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Column : MonoBehaviour
+namespace Assets.Scripts
 {
-    void OnTriggerEnter2D(Collider2D other)
+    public class Column : MonoBehaviour
     {
-        if (other.GetComponent<Bird>() != null)
+        void OnTriggerEnter2D(Collider2D other)
         {
-            GameControl.instance.BirdScored();
+            if (other.GetComponent<Bird>() != null)
+            {
+                GameControl.instance.BirdScored();
+            }
         }
-    }
 	
+    }
 }

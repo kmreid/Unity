@@ -1,56 +1,58 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameControl : MonoBehaviour
+namespace Assets.Scripts
 {
-    public static GameControl instance;
-
-    public float scrollSpeed = -1.5f;
-    public float skyScrollSpeed = -1f;
-    public GameObject gameOverText;
-    public Text scoreText;
-    public bool gameOver;
-
-    private int score = 0;
-
-	// Use this for initialization
-	void Awake ()
-	{
-	    if (instance == null)
-	    {
-	        instance = this;
-	    }
-        else if (instance != this)
-	    {
-            Destroy(gameObject);
-	    }
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	    if (gameOver && Input.GetMouseButtonDown(0))
-	    {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-	    }
-	}
-
-    public void BirdScored()
+    public class GameControl : MonoBehaviour
     {
-        if (gameOver)
+        public static GameControl instance;
+
+        public float scrollSpeed = -1.5f;
+        public float skyScrollSpeed = -0.75f;
+        public GameObject gameOverText;
+        public Text scoreText;
+        public bool gameOver;
+
+        private int score = 0;
+
+        // Use this for initialization
+        void Awake ()
         {
-            return;
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance != this)
+            {
+                Destroy(gameObject);
+            }
+        }
+	
+        // Update is called once per frame
+        void Update ()
+        {
+            if (gameOver && Input.GetMouseButtonDown(0))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
 
-        score++;
-        scoreText.text = string.Format("Score: {0}", score);
-    }
+        public void BirdScored()
+        {
+            if (gameOver)
+            {
+                return;
+            }
 
-    public void BirdDied()
-    {
-        gameOverText.SetActive(true);
-        gameOver = true;
+            score++;
+            scoreText.text = string.Format("Score: {0}", score);
+        }
+
+        public void BirdDied()
+        {
+            gameOverText.SetActive(true);
+            gameOver = true;
+        }
     }
 }

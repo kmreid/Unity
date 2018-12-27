@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts
 {
-    public class ScrollingObject : MonoBehaviour
+    public class ScrollingBackgroundObject : MonoBehaviour
     {
         private Rigidbody2D rb2d;
 
@@ -10,7 +10,7 @@ namespace Assets.Scripts
         void Start()
         {
             rb2d = GetComponent<Rigidbody2D>();
-            rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
+            rb2d.velocity = new Vector2(GameControl.instance.skyScrollSpeed, 0);
         }
 
         // Update is called once per frame
