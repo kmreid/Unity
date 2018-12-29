@@ -10,7 +10,7 @@ namespace Assets.Scripts
 {
     public class GameController : MonoBehaviour
     {
-        public GameObject hazard;
+        public GameObject[] hazards;
         public Vector3 spawnValues;
         public int hazardCount;
         public float spawnWait;
@@ -44,6 +44,7 @@ namespace Assets.Scripts
             {
                 for (int i = 0; i < hazardCount; i++)
                 {
+                    var hazard = hazards[Random.Range(0, hazards.Length)];
                     var spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y,
                         spawnValues.z);
                     var spawnRotation = Quaternion.identity;
