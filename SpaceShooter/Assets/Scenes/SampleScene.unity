@@ -781,34 +781,6 @@ Transform:
   m_Father: {fileID: 1270860022}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &686908875
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 686908876}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &686908876
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 686908875}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
-  m_LocalScale: {x: 15, y: 30.000015, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &790912051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1053,7 @@ MonoBehaviour:
   - {fileID: 1377832729686510, guid: 6a3ca450420d86741a8fb83bedb32390, type: 2}
   - {fileID: 1239921029512838, guid: 3c0cf67f58c56cd47a4408df3a3cb375, type: 2}
   - {fileID: 1110142695210054, guid: c4f4afb80a6d6ff4684ddcd893cf7a18, type: 2}
+  - {fileID: 1774012302831320, guid: 417b845daae00e244a4d06b70886f613, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 10
   spawnWait: 0.5
