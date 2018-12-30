@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,10 +19,9 @@ namespace Assets.Scripts
         public Text restartText;
         public Text gameOverText;
 
-        private int score;
+        public int score;
         private bool gameOver;
         private bool restart;
-
 
         void Start()
         {
