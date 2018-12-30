@@ -40,8 +40,6 @@ namespace Assets.Scripts
         private float nextFire;
         private float speed;
         private float tilt;
-        private float damage;
-        private float damageLimit;
         private Dictionary<FiringMode, float> firingModeSteps;
         private Dictionary<float, float> firingRateSteps;
         private FiringMode firingMode;
@@ -56,7 +54,6 @@ namespace Assets.Scripts
             fireRate = 0.3f;
             speed = 10;
             tilt = 4;
-            damageLimit = 100;
             firingMode = FiringMode.Single;
 
             firingModeSteps = new Dictionary<FiringMode, float>

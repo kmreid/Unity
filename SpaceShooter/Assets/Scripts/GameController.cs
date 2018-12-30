@@ -18,14 +18,16 @@ namespace Assets.Scripts
         public Text scoreText;
         public Text restartText;
         public Text gameOverText;
-
         public int score;
+        public float playerHealth;
+
         private bool gameOver;
         private bool restart;
 
         void Start()
         {
             score = 0;
+            playerHealth = 100;
             gameOver = false;
             restart = false;
             restartText.text = string.Empty;
@@ -81,6 +83,11 @@ namespace Assets.Scripts
         {
             score += newScoreValue;
             UpdateScore();
+        }
+
+        public void AddDamage(float newDamageValue)
+        {
+            playerHealth -= newDamageValue;
         }
 
         public void GameOver()

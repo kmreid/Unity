@@ -32,20 +32,57 @@ namespace Assets.Scripts
                 return;
             }
 
-            if (explosion != null)
-            {
-                Instantiate(explosion, transform.position, transform.rotation);
-            }          
-
             if (other.CompareTag("Player"))
             {
-                Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-                gameController.GameOver();
-            }
+                gameController.AddDamage(10f);
 
-            gameController.AddScore(scoreValue);
-            Destroy(other.gameObject);
-            Destroy(gameObject);
+                Destroy(gameObject);
+
+                if (gameController.playerHealth <= 0)
+                {
+                    if (playerExplosion != null)
+                    {
+                        Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+                    }
+
+                    Destroy(other.gameObject);           
+                    gameController.GameOver();
+                }
+            }
+            else
+            {
+                if (GetComponent<Asteroid>() != null)
+                {
+                    var asteroid = GetComponent<Asteroid>();
+                    asteroid.AddDamage(10f);
+
+                    Destroy(other.gameObject); // Destroy the bolt
+
+                    if (asteroid.health <= 0)
+                    {
+                        // If the asteroid's health is low enough, destroy it
+                        if (explosion != null)
+                        {
+                            Instantiate(explosion, transform.position, transform.rotation);
+                        }                   
+                        Destroy(gameObject);
+                        gameController.AddScore(scoreValue);
+                    }
+                }
+                else // TODO: enemy health
+                {
+                    if (explosion != null)
+                    {
+                        Instantiate(explosion, transform.position, transform.rotation);
+                    }
+
+                    Destroy(other.gameObject);
+                    Destroy(gameObject);
+                    gameController.AddScore(scoreValue);
+                }
+
+                
+            }
         }
     }
 

@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 5
+  health: 50
 --- !u!114 &114220624211145766
 MonoBehaviour:
   m_ObjectHideFlags: 1
