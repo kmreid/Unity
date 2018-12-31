@@ -1,0 +1,15 @@
+﻿Enemy Health
+Powerups
+Damage Graphics
+Health Bar
+Different Weapons
+Loading Screen
+Options Screen
+Different Enemies / Smart & Dumb
+Different Levels
+Story
+Bosses
+Music Variety
+Effects Variety
+Lives / Life Bar
+Pause
