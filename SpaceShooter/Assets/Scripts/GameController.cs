@@ -18,6 +18,9 @@ namespace Assets.Scripts
         public Text scoreText;
         public Text restartText;
         public Text gameOverText;
+        public GameObject healthBar;
+        private RectTransform healthRectTransform;
+        private float healthRectWidth;
         public int score;
         public float playerHealth;
 
@@ -28,6 +31,10 @@ namespace Assets.Scripts
         {
             score = 0;
             playerHealth = 100;
+
+            healthRectTransform = healthBar.GetComponent<RectTransform>();
+            healthRectWidth = healthRectTransform.rect.width;
+            
             gameOver = false;
             restart = false;
             restartText.text = string.Empty;
@@ -82,12 +89,18 @@ namespace Assets.Scripts
         public void AddScore(int newScoreValue)
         {
             score += newScoreValue;
-            UpdateScore();
+            UpdateScore(); // TODO: use Observer pattern
+        }
+
+        void UpdateHealth()
+        {
+            healthRectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, healthRectWidth * (playerHealth / 100f));
         }
 
         public void AddDamage(float newDamageValue)
         {
             playerHealth -= newDamageValue;
+            UpdateHealth(); // TODO: use Observer pattern
         }
 
         public void GameOver()
