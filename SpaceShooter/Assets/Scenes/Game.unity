@@ -305,7 +305,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &419362767
 GameObject:
@@ -397,7 +397,7 @@ RectTransform:
   - {fileID: 581050823}
   - {fileID: 1956756749}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1003,7 +1003,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9930946b7c5f48e44aef1e56c2de7315, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 9930946b7c5f48e44aef1e56c2de7315, type: 2}
       propertyPath: InitialModule.startSizeY.minMaxState
@@ -1148,10 +1148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hazards:
-  - {fileID: 1377832729686510, guid: 6a3ca450420d86741a8fb83bedb32390, type: 2}
-  - {fileID: 1239921029512838, guid: 3c0cf67f58c56cd47a4408df3a3cb375, type: 2}
-  - {fileID: 1110142695210054, guid: c4f4afb80a6d6ff4684ddcd893cf7a18, type: 2}
-  - {fileID: 1774012302831320, guid: 417b845daae00e244a4d06b70886f613, type: 2}
+  - {fileID: 1284190310187794, guid: 2bf74764990c21941972a7b7d15c543e, type: 2}
+  - {fileID: 1284190310187794, guid: 2bf74764990c21941972a7b7d15c543e, type: 2}
+  - {fileID: 1284190310187794, guid: 2bf74764990c21941972a7b7d15c543e, type: 2}
+  - {fileID: 1284190310187794, guid: 2bf74764990c21941972a7b7d15c543e, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 10
   spawnWait: 0.5
@@ -1174,7 +1174,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &988623426
 AudioSource:
