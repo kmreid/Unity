@@ -15,15 +15,19 @@ public class MineBehaviour : MonoBehaviour
     public float seekerSensorDistance; // The distance the mine can detect the player
     public float smoothing;
     public Boundary boundary;
+    public Quaternion originalRotationValue;
 
     private Transform playerTransform;
     private float currentSpeed;
     private Vector3 targetManeuver;
     private Rigidbody rigidBody;
+    private bool activated;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        activated = false;
+        originalRotationValue = transform.rotation; // save the initial rotation
 
         rigidBody.velocity = transform.forward * -2;
 
@@ -35,12 +39,12 @@ public class MineBehaviour : MonoBehaviour
         if (mineType == MineType.Seeker)
         {
             StartCoroutine(Seek());
-        }  
+        }
     }
 
     IEnumerator Seek()
     {
-        
+
 
         while (true)
         {
@@ -49,22 +53,19 @@ public class MineBehaviour : MonoBehaviour
 
             if (canSeePlayer && playerTransform != null)
             {
-                rigidBody.velocity = transform.forward * 0;
-
-                rigidBody.isKinematic = true;
-                targetManeuver = new Vector3(playerTransform.position.x, 0, playerTransform.position.z);
-
-                //rigidBody.isKinematic = false;
-                yield return new WaitForSeconds(5f);
+                activated = true;
+                transform.LookAt(playerTransform);
+                rigidBody.velocity = transform.forward * 2;
+                yield return new WaitForSeconds(0.2f);
             }
-            //else
-            //{
-            rigidBody.isKinematic = false;
-            rigidBody.velocity = transform.forward * -2;
-            targetManeuver = new Vector3(0, 0, 0);
-            yield return new WaitForSeconds(0);
-            //}
-            
+            else
+            {
+                activated = false;
+                transform.rotation = Quaternion.Slerp(transform.rotation, originalRotationValue, Time.time);
+                rigidBody.velocity = transform.forward * -2;
+                //targetManeuver = new Vector3(0, 0, 0);
+                yield return new WaitForSeconds(0.5f);
+            }
         }
     }
 
@@ -75,13 +76,13 @@ public class MineBehaviour : MonoBehaviour
             return;
         }
 
-        float newManeuverX = Mathf.MoveTowards(rigidBody.velocity.x, targetManeuver.x, Time.deltaTime * smoothing);
-        float newManeuverZ = Mathf.MoveTowards(rigidBody.velocity.z, targetManeuver.z, Time.deltaTime * smoothing);
-        rigidBody.velocity = new Vector3(newManeuverX, newManeuverZ, currentSpeed);
-        rigidBody.position = new Vector3(
-            Mathf.Clamp(GetComponent<Rigidbody>().position.x, boundary.xMin, boundary.xMax),
-            0.0f,
-            Mathf.Clamp(GetComponent<Rigidbody>().position.z, boundary.zMin, boundary.zMax)
-        );
+        //float newManeuverX = Mathf.MoveTowards(rigidBody.velocity.x, targetManeuver.x, Time.deltaTime * smoothing);
+        //float newManeuverZ = Mathf.MoveTowards(rigidBody.velocity.z, targetManeuver.z, Time.deltaTime * smoothing);
+        //rigidBody.velocity = new Vector3(newManeuverX, 0f, newManeuverZ);
+        //rigidBody.position = new Vector3(
+        //    Mathf.Clamp(GetComponent<Rigidbody>().position.x, boundary.xMin, boundary.xMax),
+        //    0.0f,
+        //    Mathf.Clamp(GetComponent<Rigidbody>().position.z, boundary.zMin, boundary.zMax)
+        //);
     }
 }
